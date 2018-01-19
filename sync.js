@@ -25,10 +25,10 @@ function api_request(options) {
   options.page = options.page || 1;
   request(options)
   .then((res) => {
-    totalChats.push(...res.chats); 
-    if(options.page < res.pages) {
-      const newOptions = _.merge(options, { page: options.page + 1 });
-      return api_request(newOptions);
+    total_chats.push(...res.chats); 
+    if (options.page < res.pages) {
+      const new_options = _.merge(options, { page: options.page + 1 });
+      return api_request(new_options);
     } else {
       return totalChats;
     }
